@@ -1,0 +1,21 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet"  type="text/css"  href='{% static "style.css" %}'>
+</head>
+<body>
+
+    {% block content %}
+    <header>
+        <h2>Добро пожаловать на домашнюю страницу!</h2>
+        {% csrf_token %}
+        <a href="{% url 'login' %}">Авторизация</a>
+        <div></div>
+        <a href="{% url 'register' %}">Регистрация</a>
+    </header>
+    {% endblock %}
+
+</body>
+</html>

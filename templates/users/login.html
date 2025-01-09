@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet"  type="text/css"  href='{% static "style.css" %}'>
+</head>
+<body>
+    {% block error %}
+    <h1>{{ error }}</h1>
+    {% endblock %}
+    <header>
+        <h1>Авторизация</h1>
+        <a href="{% url 'register' %}">Регистрация</a>
+    </header>
+    <p></p>
+    <header>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Войти</button>
+        </form>
+    </header>
+</body>
+</html>
