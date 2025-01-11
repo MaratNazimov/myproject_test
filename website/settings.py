@@ -13,15 +13,15 @@ import os
 from pathlib import Path
 
 
-from readme_metrics import MetricsApiConfig
-from dotenv import load_dotenv
+# from readme_metrics import MetricsApiConfig
+# from dotenv import load_dotenv
 
-load_dotenv()
-
-README_METRICS_CONFIG = MetricsApiConfig(
-    api_key="<<user>>",
-    grouping_function="module.path.to.your.grouping_function"
-)
+# load_dotenv()
+#
+# README_METRICS_CONFIG = MetricsApiConfig(
+#     api_key="<<user>>",
+#     grouping_function="module.path.to.your.grouping_function"
+# )
 
 MIDDLEWARE = [..., "readme_metrics.django.MetricsMiddleware",...]
 
@@ -142,8 +142,8 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-LOGIN_URL = '/users/login/'
-LOGOUT_URL = '/users/logout/'
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'
 LOGIN_REDIRECT_URL = '/mysite/'
 # LOGIN_URL = '/login/'
 

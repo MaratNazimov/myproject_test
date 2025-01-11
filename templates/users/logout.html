@@ -10,8 +10,7 @@
     <header>
         {% csrf_token %}
         <h1>logout</h1>
-        <a href="{% url 'login' %}">Авторизация</a>
-        <a href="{% url 'register' %}">Регистрация</a>
+        <a href="{% url 'users:login' %}">Авторизация</a>
     </header>
 
 </body>
