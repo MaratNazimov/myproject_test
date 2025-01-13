@@ -1,0 +1,22 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet"  type="text/css"  href='{% static "style.css" %}'>
+</head>
+<body>
+
+    {% block content %}
+    <header>
+        <h2>Добро пожаловать! <br> Это приложение на Django для распознавания объектов!</h2>
+        {% csrf_token %}
+        <div class="links">
+            <a href="{% url 'login' %}">Авторизация</a>
+            <a href="{% url 'register' %}">Регистрация</a>
+        </div>
+    </header>
+    {% endblock %}
+
+</body>
+</html>
