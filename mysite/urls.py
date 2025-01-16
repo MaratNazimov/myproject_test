@@ -6,7 +6,6 @@ from . import views
 
 urlpatterns = [
     path('', views.home_view, name='home'),
-    re_path(r'^oauth/', include('social_django.urls', namespace='social')),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('process/<int:feed_id>/', views.process_image_feed, name='process_feed'),
     path('add-image-feed/', views.add_image_feed, name='add_image_feed'),

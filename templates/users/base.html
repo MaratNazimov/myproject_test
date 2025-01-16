@@ -7,7 +7,6 @@
 </head>
 <body>
     <header>
-
         {% if user.is_authenticated %}
         <h2>Добро пожаловать, {{ user.username }}!</h2>
         <form id="logout-form" action="{% url 'logout' %}" method="POST">
@@ -20,7 +19,6 @@
         {% else %}
         <p><a href="{% url 'login' %}">Войти</a> | <a href="{% url 'register' %}">Зарегистрироваться</a></p>
         {% endif %}
-
     </header>
 
     {% block content %}

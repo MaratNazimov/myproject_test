@@ -12,19 +12,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 
-
-# from readme_metrics import MetricsApiConfig
-# from dotenv import load_dotenv
-
-# load_dotenv()
-#
-# README_METRICS_CONFIG = MetricsApiConfig(
-#     api_key="<<user>>",
-#     grouping_function="module.path.to.your.grouping_function"
-# )
-
-MIDDLEWARE = [..., "readme_metrics.django.MetricsMiddleware",...]
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,7 +24,9 @@ SECRET_KEY = 'django-insecure-%q^=5m3lj+g*w19no19is24#c_=$iyfe!2*$^)tr(kkbwyj=jq
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-THUMBNAIL_DEBUG = True
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 
 ALLOWED_HOSTS = []
 
@@ -50,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
     'mysite.apps.MysiteConfig',
     'users.apps.UsersConfig',
 ]
@@ -62,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'website.urls'
@@ -129,8 +120,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -158,7 +147,6 @@ MEDIA_URL = '/media/'
 LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
 LOGIN_REDIRECT_URL = '/mysite/'
-# LOGIN_URL = '/login/'
 
 
 # Default primary key field type
