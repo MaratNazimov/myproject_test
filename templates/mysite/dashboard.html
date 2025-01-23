@@ -2,11 +2,11 @@
 {% block title %} Dashboard - {{ user.username.title }}{% endblock title%}
 {% block content %}
 
+<div align="center">
 <h3>Dashboard:<br>Изображения пользователя {{ user.username.title }}</h3>
-<a href="{% url 'add_image_feed' %}" class="btn btn-primary mb-3">Добавить изображение</a>
+<a href="{% url 'add_image_feed' %}" class="btn btn-primary mb-3">Добавить изображение</a><br><br>
 
 {% for feed in image_feeds %}
-<div align="center">
 <a href="{% url 'process_feed' feed.id %}" class="btn btn-secondary">Проверить изображение</a>
 <table>
     <tr>

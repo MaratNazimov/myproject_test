@@ -11,8 +11,7 @@ def home_view(request):
 
 @login_required
 def dashboard(request):
-    # Получаем все изображения из базы данных
-    image_feeds = ImageFeed.objects.filter(user=request.user)  # Фильтр по пользователю
+    image_feeds = ImageFeed.objects.filter(user=request.user)
     return render(request, 'mysite/dashboard.html', {'image_feeds': image_feeds})
 
 
@@ -39,7 +38,6 @@ def add_image_feed(request):
 
 @login_required
 def delete_image(request, image_id):
-    image = get_object_or_404(ImageFeed, id=image_id,
-                              user=request.user)  # Гарантируя, что только владелец может удалить
+    image = get_object_or_404(ImageFeed, id=image_id, user=request.user)
     image.delete()
     return redirect('dashboard')
